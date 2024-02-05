@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bmi/pages/main_page.dart';
+import 'package:bmi/utils/calculator.dart';
 import 'package:bmi/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -132,6 +133,7 @@ class _BMIPageState extends State<BMIPage> {
               SizedBox(
                 width: 50,
                 child: CupertinoDialogAction(
+                  key: const Key('weight_minus'),
                   onPressed: () {
                     setState(() {
                       weight--;
@@ -144,6 +146,7 @@ class _BMIPageState extends State<BMIPage> {
               SizedBox(
                 width: 50,
                 child: CupertinoDialogAction(
+                  key: const Key('weight_plus'),
                   onPressed: () {
                     setState(() {
                       weight++;
@@ -235,7 +238,7 @@ class _BMIPageState extends State<BMIPage> {
       child: CupertinoButton.filled(
         child: const Text("Calculate BMI"),
         onPressed: () {
-          double bmi = weight / (pow((height / 100), 2));
+          double bmi = calculateBMI(height, weight);
           if (height > 0 && weight > 0 && age > 0) {
             _showResultDialog(bmi);
           }
