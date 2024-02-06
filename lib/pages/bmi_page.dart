@@ -78,6 +78,7 @@ class _BMIPageState extends State<BMIPage> {
               SizedBox(
                 width: 50,
                 child: CupertinoDialogAction(
+                  key: const Key('age_minus'),
                   onPressed: () {
                     setState(() {
                       age--;
@@ -90,6 +91,7 @@ class _BMIPageState extends State<BMIPage> {
               SizedBox(
                 width: 50,
                 child: CupertinoDialogAction(
+                  key: const Key('age_plus'),
                   onPressed: () {
                     setState(() {
                       age++;
